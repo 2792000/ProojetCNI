@@ -1,0 +1,218 @@
+<div class="container-fluid pt-4 px-4" >
+    <div class="card-header" >
+      <div class="row mb-3 ">
+        <div class="col-sm-8 ">
+        </div>
+        <div class="col-sm-12">
+          <div class="card-header card-header-danger" id="title-Table">
+            <h3 class="card-title" id="titre">Ajouter un contrat fournisseur</h3><br>
+          </div>
+          <div class="center"  >
+
+            <form  [formGroup]="addContrat" (ngSubmit)="ajouter()" >
+              <div class="row mb-5 "  >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-sm-4 " >
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="ref_contrat" id="ref_contrat" name="ref_contrat">
+                    <span class="spantesxt">Réference du contrat </span>
+                    <br><br> <div *ngIf="
+              f['ref_contrat'].touched &&
+              f['ref_contrat'].invalid
+            " class="text-danger">
+            <div *ngIf="f['ref_contrat'].errors && f['ref_contrat'].errors['required']">
+              Référence du  contrat est requis.
+            </div>
+
+          </div>
+                  </div>
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="objet" id="objet" name="objet">
+                    <span class="spantesxt">Objet</span>
+                    <br><br>
+
+              <div *ngIf="
+              f['objet'].touched &&
+              f['objet'].invalid
+            " class="text-danger">
+            <div *ngIf="f['objet'].errors && f['objet'].errors['required']">
+              Objet est requis.
+            </div>
+
+          </div>
+                  </div>
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="montant" id="montant" name="montant">
+                    <span class="spantesxt">Montant</span>
+                    <br><br>
+                    <div *ngIf="
+                    f['montant'].touched &&
+                    f['montant'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['montant'].errors && f['montant'].errors['required']">
+                    Montant est requis.
+                  </div>
+
+                </div>
+                  </div>
+                  <span class="spantesxt">Date de début</span>
+                  <div class="inputbox">
+
+                    <input type="date" required="required" formControlName="date_debut" id="date_debut" name="date_debut">
+
+                    <br><br>
+                    <div *ngIf="
+                    f['date_debut'].touched &&
+                    f['date_debut'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['date_debut'].errors && f['date_debut'].errors['required']">
+                    Date de début est requis.
+                  </div>
+
+                </div>
+                  </div>
+                  <span> Date de facturation</span>
+                  <div class="inputbox">
+                    <input type="date" required="required" formControlName="date_de_facturation" id="date_de_facturation" name="date_de_facturation">
+
+                    <br><br>
+                    <div *ngIf="
+                    f['date_de_facturation'].touched &&
+                    f['date_de_facturation'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['date_de_facturation'].errors && f['date_de_facturation'].errors['required']">
+                    Date de facturation est requis.
+                  </div>
+
+                </div>
+                  </div>
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="mise_en_demeure" id="mise_en_demeure" name="mise_en_demeure">
+                    <span>Mise en demeure </span><br><br>
+                    <div *ngIf="
+              f['mise_en_demeure'].touched &&
+              f['mise_en_demeure'].invalid
+            " class="text-danger">
+            <div *ngIf="f['mise_en_demeure'].errors && f['mise_en_demeure'].errors['required']">
+              Mise en demeure est requis.
+            </div>
+          </div>
+                  </div>
+                  <div class="inputbox">
+                    <label class="col-sm-12 col-form-label"><h5>PIECE JOITE</h5></label>
+              <input type="file" (change)="onFileSelected($event)" name="avatar"
+                            class="form-control" id="photo" formControlName="piece_joite" required><br><br>
+              <button type="button" class="btn btn-outline-primary m-2" (click)="onUpload()">Importer</button>
+
+
+                  </div>
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-sm-4 ">
+
+                  <div class="inputbox">
+                    <input type="text" required="required"   formControlName="ref_marche" id="ref_marche" name="ref_marche">
+                    <span>Réference  marché</span>
+ <br><br>
+              <div *ngIf="
+              f['ref_marche'].touched &&
+              f['ref_marche'].invalid
+            " class="text-danger">
+            <div *ngIf="f['ref_marche'].errors && f['ref_marche'].errors['required']">
+              Référence du marché est requis.
+            </div>
+
+          </div>
+
+                  </div>
+
+                  <div class="inputbox">
+                    <input type="text" required="required"  formControlName="duree" id="duree" name="duree">
+                    <span>Durée</span><br><br>
+                    <div *ngIf="
+                    f['duree'].touched &&
+                    f['duree'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['duree'].errors && f['duree'].errors['required']">
+                    Durée est requis.
+                  </div>
+
+                </div>
+
+                  </div>
+                  <div class="inputbox">
+                    <label style="color: rgb(0, 0, 0);" >Fournisseur</label>
+
+                    <fieldset class="row mb-10">
+
+                    <div class="select">
+
+                      <select id="standard-select" formControlName="id_fournisseur" id="id_fournisseur" name="id_fournisseur">
+                             <option [value]="null" selected>cliquer pour choisir le fournisseur</option>
+                             <option  *ngFor="let fr of Fournisseur" [value]="fr.id_fournisseur ">{{fr.nom}}&nbsp;{{fr.prenom}}</option>
+                      </select>
+                    </div>
+                  </fieldset>
+                  </div>
+                  <span  >Date de fin</span>
+                  <div class="inputbox">
+                    <input type="date" required="required" formControlName="date_fin" id="date_fin" name="date_fin">
+                     <br><br> <div *ngIf="
+                      f['date_fin'].touched &&
+                      f['date_fin'].invalid
+                    " class="text-danger">
+                    <div *ngIf="f['date_fin'].errors && f['date_fin'].errors['required']">
+                      Date de fin est requis.
+                    </div>
+                  </div>
+                    </div>
+                    <span  >Date de preavis</span>
+                  <div class="inputbox">
+                    <input type="date" required="required" formControlName="date_de_preavis" id="date_de_preavis" name="date_de_preavis">
+                     <br><br> <div *ngIf="
+                      f['date_de_preavis'].touched &&
+                      f['date_de_preavis'].invalid
+                    " class="text-danger">
+                    <div *ngIf="f['date_de_preavis'].errors && f['date_de_preavis'].errors['required']">
+                      Date de fin est requis.
+                    </div>
+                  </div>
+                    </div>
+                    <div class="inputbox">
+                      <input type="text" required="required" formControlName="structure_technique" id="structure_technique" name="structure_technique">
+                      <span>Structure technique</span><br><br>
+                      <div *ngIf="
+                      f['structure_technique'].touched &&
+                      f['structure_technique'].invalid
+                    " class="text-danger">
+                    <div *ngIf="f['structure_technique'].errors && f['structure_technique'].errors['required']">
+                      Structure technique est requis.
+                    </div>
+                  </div>
+                      </div>
+                  </div>
+              </div>
+                <div class="row mb-3 ">
+                    <div class="col-sm-4 ">
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4 ">
+                      <button type="submit" class="btn btn-outline-primary m-2" >Enregistrer</button>
+                      <button type="reset" class="btn btn-outline-danger m-2" [routerLink]="['/home/contrat/TableauBor']" >Annuler</button>
+                    </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-0 ">
+
+        </div>
+      </div>
+  </div>
+</div>
+

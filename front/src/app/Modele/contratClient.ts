@@ -1,0 +1,19 @@
+export class ContratClient{
+  id!:BigInteger;
+  ref_contrat!:any;
+  id_client!:any;
+  objet!:any;
+  montant!:any;
+  date_debut!:any;
+  date_fin!:any;
+  duree!:any;
+  structure_technique!:any;
+  piece_joite!:any;
+  renouvele!:any;
+  date_de_facturation!:any;
+  nom!:any;
+  id_payment!:any;
+  mant_paym!:any;
+  type_paym!:any;
+  date_paym!:any;
+}

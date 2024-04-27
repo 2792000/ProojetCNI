@@ -1,0 +1,256 @@
+<!--
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+    <h2 style="text-align:center">La liste des contrats arrivant à échéancer</h2>
+
+
+    <table style="text-align:center" class="table2" style=" margin-top:44px;">
+      <tr>
+        <td>
+          <button type="button" class="btn btn-primary m-2" [routerLink]="['../listeContrat']"><i class="fa fa-home me-2"></i>Liste Principale</button>
+
+        </td>
+      </tr>
+    </table>
+    <table class="table table-bordered" style="width: 50%;">
+        <thead style=" text-align: center;color: #000;" >
+            <tr>
+                <th scope="col">REf/CONTRAT</th>
+                <th scope="col">REf/MARCHE</th>
+                <th scope="col">OBJET</th>
+                <th scope="col">FOURNISSEUR</th>
+                <th scope="col">MONTANT EN DT</th>
+                <th scope="col">DURÉE</th>
+                <th scope="col">ENTRÉE EN VIGUER</th>
+                <th scope="col">FIN DU CONTRAT</th>
+                <th scope="col">DATE DE FACTURATION</th>
+                <th scope="col">MISE EN DEMEURE</th>
+                <th scope="col">STRUCTURE TECHNIQUE</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table1">
+          <tr *ngFor="let f of Contrats"  style="color: #000;">
+
+            <td>{{f.ref_contrat}}</td>
+            <td>{{f.ref_marche}}</td>
+            <td>{{f.objet}}</td>
+            <td >{{f.nom}}&nbsp;{{f.prenom}}</td>
+            <td>{{f.montant}}</td>
+            <td>{{f.duree}}</td>
+            <td>{{f.date_debut}}</td>
+            <td>{{f.date_fin}}</td>
+            <td>{{f.date_de_facturation}}</td>
+            <td>{{f.mise_en_demeure}}</td>
+            <td>{{f.structure_technique}}</td>
+            <td><button class="btn btn-dark m-2"  [routerLink]="['../renouvelContrat',f.id_contratFrn]">Revoucelle</button>
+            </td>
+        </tbody>
+    </table>
+  </div>
+  </div> -->
+  <div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded h-100 p-4">
+  <div class="container p-30">
+    <div class="row">
+
+        <div class="col-md-12 main-datatable">
+          <div class="card-header card-header-danger" id="title-Table">
+            <h3 class="card-title" id="titre">La liste des contrats Fournisseur arrivant à échéancer</h3>
+          </div>
+            <div class="card_body">
+                <div class="row d-flex">
+                    <div class="col-sm-4 createSegment">
+                     <a class="btn dim_button create_new"  routerLink="../creationContrat" > <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i> Ajouter un element </a>
+                    </div>
+                    <div class="col-sm-8 add_flex">
+                        <div class="form-group searchInput" aria-autocomplete="on" (keyup)="filterData($event)">
+                            <label for="email">Recherche:</label>
+                            <input type="search"  class="form-control" id="filterbox" matInput placeholder=" ">
+                        </div>
+                    </div>
+                </div>
+                <div class="overflow-x">
+                    <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer" mat-table matSort [dataSource]="dataSource!"  >
+                                 <thead>
+                                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                 </thead>
+                            <tr>
+                               <ng-container matColumnDef="ref_contrat">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px ; font-size: 15px; ">Référence contrat</th>
+                               <td  mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px;" style=" font-size: 15px;"><a data-bs-toggle="modal"
+                                data-bs-target="#exampledetail" (click)="detailsContrat(element)">
+                                <i class="fa fa-pencil-square-o fa-lg" ></i> {{element.ref_contrat}} </a> </p></td>
+                               </ng-container>
+
+
+                               <ng-container matColumnDef="ref_marche">
+                                <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px; font-size: 12px;font-size: 15px;">Référence marché</th>
+                                <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px; font-size: 12px;" > {{element.ref_marche}}</p></td>>
+                              </ng-container>
+                               <!-- Name Column -->
+                               <ng-container matColumnDef="nom">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px;font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Fournisseur</th>
+                                 <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px; font-size: 12px;"> {{element.nom}}</p></td>>
+                               </ng-container>
+
+                               <!-- Color Column -->
+                               <ng-container matColumnDef="objet">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px;font-size: 15px;">Objet</th>
+                                 <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px;font-size: 15px;">{{element.objet}}</p></td>
+                               </ng-container>
+                               <!-- Color Column -->
+
+                               <ng-container matColumnDef="montant">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px;font-size: 15px;">Montant</th>
+                                 <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px;font-size: 12px;">{{element.montant}} DT</p></td>
+                               </ng-container>
+                               <!-- Color Column -->
+                               <ng-container matColumnDef="date_debut">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px;font-size: 15px;">Date début</th>
+                                 <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px;font-size: 12px;">{{element.date_debut}}</p></td>
+                               </ng-container>
+
+                               <ng-container matColumnDef="date_fin">
+                                 <th mat-header-cell *matHeaderCellDef  style="min-width:0px;padding-right: 0px;font-size: 15px;" >Date fin</th>
+                                 <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:0px;font-size: 12px;">{{element.date_fin}}</p></td>
+                               </ng-container>
+                               <ng-container matColumnDef="element" *ngIf="(ruser!='admin')">
+                                <th  mat-header-cell *matHeaderCellDef style="min-width:0px;font-size: 0px;">&nbsp;&nbsp;Action</th>
+                                <td mat-cell *matCellDef="let element" >
+                                    <div class="btn-group" style="margin-top:-8px;">
+                                        <a class="dropdown-toggle dropdown_icon" style="color:#2399BF;border: 1px solid #2399BF" data-toggle="dropdown" [routerLink]="['../mConFrn',element.id_contratFrn]">
+                                            <i class="fa fa-info-circle fa-lg" ></i>
+                                        </a>
+                                        <ul class="dropdown-menu dropdown_more">
+                                            <li class="li">
+                                                <a  target="_black">
+                                                  <i class="fa fa-info-circle fa-lg" >  plus de details  </i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+
+                                    <div class="btn-group" style="margin-top:-8px;">
+                                      <a class="dropdown-toggle dropdown_icon"style="color:#D41616;border: 1px solid #D41616"  data-toggle="dropdown" data-bs-toggle="modal"
+                                      data-bs-target="#exampleDelete"  (click)="delete(element)" >
+                                        <i class="fa fa-trash fa-lg" style="color:#D41616;"></i>
+                                      </a>
+                                      <ul class="dropdown-menu dropdown_more">
+                                          <li class="li1">
+
+                                      <a > <i class="fa fa-trash fa-lg" style="color:#D41616;">&nbsp; <b>Supprimer</b></i></a>
+                                    </li>
+                                  </ul>
+                              </div>
+
+                                </td>
+                              </ng-container>
+                              <ng-container matColumnDef="element" *ngIf="(ruser=='admin')">
+                                <th  mat-header-cell *matHeaderCellDef style="min-width:0px;font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;Piece joint</th>
+                                <td mat-cell *matCellDef="let element" >
+                                  <p style="text-align:center;padding-right:0px;font-size: 12px;"> <a  href="http://127.0.0.1/PFE/contrat/imageContratC/{{cont.piece_joite}}">Voir contrat</a></p>
+                                </td>
+                              </ng-container>
+                              <tbody>
+                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                              </tbody>
+                    </table>
+                    <div>
+                      <mat-paginator  #paginator
+                      [pageSize]="4"
+                      [pageSizeOptions]="[ 2, 3, 4, 5, 10, 25, 100]" >
+                    </mat-paginator>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="modal fade-info" id="exampledetail" tabindex="2" aria-labelledby="exampleDeleteLabel" aria-hidden="true" >
+  <div class="modal-dialog" >
+    <div class="modal-content" >
+      <div class="modal-header" style="background-color: #78acda ;">
+        <h5   style="text-align: center ;" class="card-title" id="titre">{{cont.ref_contrat}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="det">
+          Réference du contrat:&nbsp;&nbsp;<i style="color:black;">{{cont.ref_contrat}}</i><br>
+          Réference du marché:&nbsp;&nbsp;<i style="color:black;">{{cont.ref_marche}}</i><br>
+          Client:&nbsp;&nbsp;<i style="color:black;">{{cont.nom}}</i><br>
+          Objer:&nbsp;&nbsp;<i style="color:black;">{{cont.objet}}</i><br>
+          Montant:&nbsp;&nbsp;<i style="color:black;">{{cont.montant}}&nbsp;DT</i><br>
+          Durée:&nbsp;&nbsp;<i style="color:black;">{{cont.duree}}</i><br>
+          Date de début:&nbsp;&nbsp;<i style="color:black;">{{cont.date_debut}}</i><br>
+          Date de fin:&nbsp;&nbsp;<i style="color:black;">{{cont.date_fin}}</i><br>
+          Structure technique:&nbsp;&nbsp;<i style="color:black;">{{cont.structure_technique}}</i><br>
+          Mise en demeure :&nbsp;&nbsp;<i style="color:black;">{{cont.mise_en_demeure}}</i><br>
+          Date de facturation:&nbsp;&nbsp;<i style="color:black;">{{cont.date_de_facturation}}</i><br>
+          Piece joint&nbsp;&nbsp;<i style="color:black;"><a  href="http://127.0.0.1/PFE/contrat/imageContratC/{{cont.piece_joite}}">Voir contrat</a></i><br>
+          État du contrat:&nbsp;&nbsp;<i style="color:black;" *ngIf="(cont.date_fin<date)">contrat épuisé </i>
+          <i style="color:black;" *ngIf="(cont.date_fin>date)">contrat encore valable  </i>
+        </div></div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary rounded-pill m-2" data-bs-dismiss="modal" style="text-align: left ;" [routerLink]="['../afficheContratFr',id_contratFrn]">Imprimer</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button type="button" class="btn btn-primary rounded-pill m-2" data-bs-dismiss="modal">Quitter</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <div class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous supprimer ce contrat ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment <b>supprimer</b> le contrat de référence <b>&nbsp; {{refContrat}}</b> ?
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="supprimer(id_contratFrn)">Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.14/js/jquery.dataTables.min.js"></script>
+<script src="js/main.js">
+$(document).ready(function() {
+var dataTable = $('#filtertable').DataTable({
+  "pageLength":5,
+  'aoColumnDefs':[{
+      'bSortable':false,
+      'aTargets':['nosort'],
+  }],
+  columnDefs:[
+      {type:'date-dd-mm-yyyy',aTargets:[5]}
+  ],
+  "aoColumns":[
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+  ],
+  "order":false,
+  "bLengthChange":false,
+  "dom":'<"top">ct<"top"p><"clear">'
+});
+$("#filterbox").keyup(function(){
+  dataTable.search(this.value).draw();
+});
+} );
+</script>
+

@@ -1,0 +1,92 @@
+
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+
+    <h2 align="center" ><b>Liste des Contrats Fournisseur</b></h2>
+
+
+
+
+    <table border="1" align="right" class="table1" style=" margin-bottom:20px;">
+      <tr>
+        <td scope="col" class="errur" style="color: #000;"> contrat épuisé </td>
+      </tr>
+      <tr><td scope="col" class="ok" style="color: #000;"> contrat encore valable </td></tr>
+
+    </table>
+    <table align="left" class="table2">
+      <tr>
+        <td>
+    <button  class="btn btn-primary m-2"  [routerLink]="['../listConRenv']">Renouveler des contrats arrivant à échéance</button>
+        </td>
+      </tr>
+    </table>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">REf/CONTRAT</th>
+                <th scope="col">REf/MARCHÉ</th>
+                <th scope="col">OBJET</th>
+                <th scope="col">Fournisseur</th>
+
+                <th scope="col">MONTANT EN DT</th>
+                <th scope="col">DURÉE</th>
+                <th scope="col">DATE DE DÉBUT</th>
+                <th scope="col">FIN DU CONTRAT</th>
+                <th scope="col">DATE DE FACTURATION</th>
+                <th scope="col">MISE EN DEMEURE</th>
+                <th scope="col">PIECE JOINTE</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let f of Contrats"  style="color: #000;"
+          [ngClass]="{
+            'ok':f.date_fin>nows,
+            'errur':f.date_fin<now,
+            'valide':f.renouvele==1
+
+
+          }"  >
+
+            <td><b><a [routerLink]="['../mConFrn',f.id_contratFrn]" class="dropdown-item">{{f.ref_contrat}}</a></b></td>
+            <td><b>{{f.ref_marche}}</b></td>
+            <td><b>{{f.objet}}</b></td>
+            <td ><b>{{f.nom}}&nbsp;{{f.prenom}}</b></td>
+            <td><b>{{f.montant}}</b></td>
+            <td><b>{{f.duree}}</b></td>
+            <td><b>{{f.date_debut}}</b></td>
+            <td><b>{{f.date_fin}}</b></td>
+
+            <td><b>{{f.mise_en_demeure}}</b></td>
+
+            <td><a href="http://127.0.0.1/PFE/contrat/imageContratC/{{f.piece_joite}}"><b>Voir contart</b></a></td>
+           <!-- <td><button class=" btn btn-fill btn-info" [routerLink]="['../mConFrn',f.id_contratFrn]"><i class="fa fa-edit"></i></button></td> -->
+
+             <td>
+              <button class=" btn btn-fill btn-info" [routerLink]="['../afficheContratFr',f.id_fournisseur]"><img src="assets/img/imprimer.ico" style="width: 20px; height: 20px;"></button></td>
+             <td> <button class="btn btn-danger btn-fill"style="margin-left: 10px;"data-bs-toggle="modal"
+              data-bs-target="#exampleDelete" (click)="delete(f.id_contratFrn,f.ref_contrat)"><i class="fa fa-trash"></i></button>
+            </td>
+        </tbody>
+    </table>
+
+  </div>
+  </div>
+  <div class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous supprimer ce contrat ?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Voulez-vous vraiment <b>supprimer</b> la contrat de référence <b>{{refContrat}}</b> ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+          <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="supprimer(idContratFrn)" >Supprimer </button>
+        </div>
+      </div>
+    </div>
+  </div>

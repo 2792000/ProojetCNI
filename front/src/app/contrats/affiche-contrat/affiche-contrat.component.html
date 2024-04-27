@@ -1,0 +1,159 @@
+<!-- <div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+    <div class="bg-light rounded h-100 p-4" >
+       <img src="../assets/img/logo.png" alt="CNI" style="width: 120px; height: 100px;">
+       <h3 class="mb-4 ">Contrat de vente </h3><br><br><br>
+       <div class="row mb-3 ">
+        <div class="col-sm-4 ">
+          <label  clas="col-sm-1 col-form-label"><h5>Nom de la société  :  Centre National de l'Informatique (CNI) </h5></label>
+          <label  clas="col-sm-1 col-form-label"><h5>Adresse :  17, 1005 Av. Belhassen Ben Chaabane, Tunis </h5></label>
+          <label  clas="col-sm-1 col-form-label"><h5>N° du téléphone :  71 783 055</h5></label>
+        </div>
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-4 ">
+          <h5>Nom& Prénom  du Fournisseur  : {{nom}}&nbsp;{{prenom}}</h5>
+          <h5>N° carte d'identité   : {{cin}}</h5>
+          <h5>Adresse :  {{adresse}} </h5>
+          <h5>N° du téléphone : {{num_tel}} </h5>
+        </div>
+      </div>
+  <div class="row mb-1 " >
+
+</div>
+  <div class="row mb-1 " >
+    <div class="col-sm-8 ">
+      <h4>Description du produit   </h4><br><br>
+      <h5>Dans le cadre de ce contrat, je vous demande de bien exécuter mon contrat d'assurance <br>
+        Référence :{{ref_contrat}} et d'objet :{{objet}} ,<br>de montant={{montant}} DT. <br>
+</h5>
+    </div>
+    <div class="col-sm-8 ">
+<h5>Entendu que nous devons respecter le délai convenu de {{duree}} fixé par les dispositions <br>
+ générales sur votre contrat.Je vous rends que ce contrat entrée en vigueur le {{date_debut}} et <br>
+prendra fin le {{date_fin}} qui correspond à sa date de recondution.</h5>
+    </div>
+    <div class="col-sm-8 ">
+      <h5>Dons l'attente d'une suite favorable ,je vous prise Madame,Monsieur d'agréér ,lexpression <br>
+        de mes salutations les plus distinguées</h5>
+          </div>
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-4 ">
+
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-4 ">
+    <h6>A ........... le: {{now}}</h6>
+  </div>
+</div>
+<div class="row mb-3 ">
+
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-4 ">
+    <h5>Signature du vendeur </h5>
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-4 ">
+    <h5>Signature de l’acheteur</h5>
+  </div>
+</div>
+
+<div class="d-print-none">
+  <div class="float-end">
+      <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+      <a href="/home/contrat/listeContrat" class="btn btn-primary w-md waves-effect waves-light">Annuler</a>
+  </div>
+</div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+
+    <div class="bg-light rounded h-100 p-4" >
+      <div id="print">
+       <h2 class="titre" style="text-align:center ;">Contrat de vente</h2><br><br><br>
+       <div class="row mb-3 ">
+        <div class="col-sm-8 ">
+          <h5><b> Nom de la société: Centre National de l'Informatique (CNI)</b> </h5>
+          <h5><b>N° du téléphone: 71 783 055</b></h5>
+          <h5><b>Adresse :  17, 1005 Av. Belhassen Ben Chaabane, Tunis </b></h5>
+          <br>
+
+          <h5>Nom& Prénom  du Fournisseur  : {{nom}}</h5>
+          <h5>N° du téléphone : {{num_tel}} </h5>
+          <h5>N° Fax: {{fax}}</h5>
+          <h5>Adresse :  {{adresse}} </h5>
+
+        </div>
+      </div>
+  <div class="row mb-1 " >
+
+</div>
+  <div class="row mb-1 " >
+    <div class="justifier">
+      <h4>Description du produit   </h4>
+<h4>Dans le cadre de ce contrat, je vous demande de bien exécuter mon contrat d'assurance
+Référence :{{ref_contrat}} et d'objet :{{objet}} de montant={{montant}} DT.<br></h4>
+<h4>Entendu que nous devons respecter le délai convenu de {{duree}} fixé par les dispositions
+ générales sur votre contrat.Je vous rends que ce contrat entrée en vigueur le {{date_debut}} et
+prendra fin le {{date_fin}} qui correspond à sa date de recondution .</h4>
+<h4>Dons l'attente d'une suite favorable ,je vous prise Madame,Monsieur d'agréér, lexpression
+de mes salutations les plus distinguées</h4>
+          </div></div>
+<div class="row mb-3 ">
+  <div class="col-sm-4 ">
+
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-4 ">
+    <h6 style="text-align:right ;">A ........... le:{{now}}</h6>
+  </div>
+</div>
+<div class="row mb-3 ">
+  <div class="col-sm-4 ">
+    <h5 style="text-align:left ;">Signature du vendeur </h5>
+  </div>
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-4 ">
+    <h5 style="text-align:right ;">Signature de l’acheteur</h5>
+  </div>
+</div>
+<!-- <div class="d-print-none">
+  <div class="float-end">
+      <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+      <a href="/home/contrat_client/listeContrat" class="btn btn-primary w-md waves-effect waves-light">Annuler</a>
+  </div>
+</div> -->
+</div>
+<div class="d-print-none">
+  <div class="float-end">
+    <button
+      class="btn btn-success waves-effect waves-light me-1"
+      (click)="printdoc()"
+    >
+      <i class="fa fa-print"></i>
+    </button>
+   <button
+      href="/home/contrat/listeContrat"
+      class="btn btn-primary w-md waves-effect waves-light"
+      >Annuler</button>
+  </div>
+</div>
+<!-- <a href="javascript:window.print()" class="btn btn-success waves-effect waves-light me-1"><i class="fa fa-print"></i></a>
+<button  class="btn btn-danger rounded-pill m-2" [routerLink]="['/home/contrat_client/listeContrat']" >Annuler</button> -->
+
+  </div>
+  </div>
+</div>
+

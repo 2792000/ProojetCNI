@@ -1,0 +1,84 @@
+<div class="container-fluid pt-4 px-4" >
+  <div class="card-header" >
+    <div class="row mb-3 ">
+      <div class="col-sm-8 ">
+      </div>
+      <div class="col-sm-12">
+        <div class="card-header card-header-danger" id="title-Table">
+          <h3 class="card-title" id="titre">Ajouter une tranche</h3><br>
+        </div>
+        <div class="center"  >
+
+          <!-- <form  [formGroup]="addClinet" (ngSubmit)="ajouter()" novalidate style="align-items:cenetr ; width:100%;"> -->
+            <form [formGroup]="addContrat" (ngSubmit)="ajouter()" novalidate>
+            <div class="row mb-5 "  >
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+              <div class="col-sm-4 " ><br>
+                <div class="inputbox">
+                  <input type="text" required="required" class="form-control form-control-alternative" formControlName="mant_paym" id="mant_paym" name="mant_paym"   >
+                  <span class="spantesxt">Montant de tranche</span>
+                  <br><br>
+                </div>
+                <div class="inputbox">
+                  <div >
+                    <label style="color: dodgerblue;" >Type de paiement</label>
+                    <fieldset class="row mb-10">
+                    <div class="select">
+                      <select class="form-select form-select-sm mb-3"  formControlName="type_paym"  id="type_paym" name="type_paym">
+                        <option [ngValue]="null" >cliquer pour choisir le type de paiement</option>
+                        <option value="Espéces">Espéces</option>
+                        <option value="Chéque">Chéque</option>
+                        <option value="Carte visa">Carte visa</option>
+                      </select>
+                    </div>
+                  </fieldset>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="col-sm-4 ">
+
+
+                <span>Date de paiement</span>
+                <div class="inputbox">
+                  <input type="date" required="required" formControlName="date_paym" id="date_paym" name="date_paym">
+
+                </div>
+              </div>
+            </div>
+
+              <div class="row mb-3 ">
+                  <div class="col-sm-4 ">
+                  </div>
+                  <div class="col-sm-4">
+                  </div>
+                  <div class="col-sm-4 ">
+
+                    <button type="submit" class="btn btn-outline-primary m-2" >Enregistrer</button>
+                    <button type="reset" class="btn btn-outline-danger m-2" routerLink="/home/contrat_client/suivi/{{id_contratFrn}}" >Annuler</button>
+                  </div>
+                </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-0 ">
+
+
+      </div>
+    </div>
+
+
+
+</div>
+
+
+</div>
+

@@ -1,0 +1,297 @@
+<!--<button type="button" class="btn btn-outline-success m-2" id="envoi">Envoyer</button>
+<script src="https://smtpjs.com/v3/smtp.js">
+</script>
+<script>
+  var btn=document.getElementById('envoi');
+  btn.addEventListener('click',function(e){
+    e.preventDefault()
+    Email.send({
+  Host : "smtp.gmail.com",
+  Username : "57amine6@gmail.com",
+  Password : "ncoytpcnmmhniiet",
+  To : '57amine6@gmail.com',
+  From : "brmjbeltunsie@gmail.com",
+  Subject : "This is the subject",
+  Body : "And this is the body"
+}).then(
+message => alert(message)
+);
+
+  })
+
+</script>
+-->
+<!--<div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+    <div class="bg-light rounded h-100 p-4">
+
+        <h3 class="mb-4 ">Les Coordonnées D'Utilisateur</h3>
+        <br>
+        <br>
+        <form [formGroup]="addCompte" (ngSubmit)="ajouter()">
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  clas="col-sm-1 col-form-label"><h5>Nom </h5></label>
+              <input type="text" class="form-control" formControlName="nom" id="nom" name="nom">
+              <div *ngIf="
+              f['nom'].touched &&
+              f['nom'].invalid
+            " class="text-danger">
+            <div *ngIf="f['nom'].errors && f['nom'].errors['required']">
+              Nom est requis!!
+            </div>
+          </div>
+
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label  class="col-sm-1 col-form-label"><h5>Prénom</h5></label>
+              <input type="text" class="form-control" formControlName="prenom" id="prenom" name="prenom">
+              <div *ngIf="
+              f['prenom'].touched &&
+              f['prenom'].invalid
+            " class="text-danger">
+            <div *ngIf="f['prenom'].errors && f['prenom'].errors['required']">
+              Prénom est requis!!
+            </div>
+          </div>
+            </div>
+          </div>
+
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-form-label"><h5>Numéro de téléphonne</h5></label>
+              <input type="tel" class="form-control" formControlName="num_tel" id="num_tel" name="num_tel">
+              <div *ngIf="
+              f['num_tel'].touched &&
+              f['num_tel'].invalid
+            " class="text-danger">
+            <div *ngIf="f['num_tel'].errors && f['num_tel'].errors['required']">
+              Numéro de téléphonne est requis!!
+            </div>
+          </div>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label for="inputEmail3" class="col-sm-2 col-form-label"><h5>Email</h5></label>
+              <input type="email" class="form-control" formControlName="email" id="email" name="email">
+              <div *ngIf="
+              f['num_tel'].touched &&
+              f['num_tel'].invalid
+            " class="text-danger">
+            <div *ngIf="f['num_tel'].errors && f['num_tel'].errors['required']">
+              Numéro de téléphonne est requis!!
+            </div>
+          </div>
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-6 ">
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-12 pt-0"><h5>Direction</h5></legend>
+
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <select class="form-select form-select-sm mb-3"  formControlName="role" >
+                  <option [ngValue]="null" disabled>Direction</option>
+                  <option value="responsable CC">Responsable CC</option>
+                  <option value="responsable CF">Responsable CF</option>
+                  <option value="admin">Administrateur</option>
+                </select>
+
+              </div>
+            </div>
+            </fieldset>
+            </div>
+
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-form-label"><h5>Login</h5></label>
+              <input type="text" class="form-control" formControlName="login" id="login" name="login">
+              <div *ngIf="
+              f['login'].touched &&
+              f['login'].invalid
+            " class="text-danger">
+            <div *ngIf="f['login'].errors && f['login'].errors['required']">
+              Login est requis!!
+            </div>
+          </div>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label for="inputEmail3" class="col-form-label"><h5>Mot De Passe</h5></label>
+              <input type="password" class="form-control" formControlName="password" id="password" name="password">
+              <div *ngIf="
+              f['password'].touched &&
+              f['password'].invalid
+            " class="text-danger">
+            <div *ngIf="f['password'].errors && f['password'].errors['required']">
+              Mot De Passe est requis!!
+            </div>
+          </div>
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4 ">
+              <button type="submit" class="btn btn-outline-success m-2" >Enregistrer</button>
+
+              <button type="reset" class="btn btn-outline-danger m-2"  [routerLink]="['/home/Compte/liste-comptes']" >Annuler</button>
+
+            </div>
+          </div>
+
+
+        </form>
+    </div>
+  </div>
+  </div>-->
+<div class="container-fluid pt-4 px-4" >
+    <div class="card-header" >
+      <div class="row mb-3 ">
+        <div class="col-sm-8 ">
+        </div>
+        <div class="col-sm-12">
+          <div class="card-header card-header-danger" id="title-Table">
+            <h3 class="card-title" id="titre">Ajouter un utilisateur</h3><br>
+          </div>
+          <div class="center"  >
+
+            <form  [formGroup]="addCompte" (ngSubmit)="ajouter()" novalidate >
+              <div class="row mb-5 "  >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-sm-4 " >
+                  <div class="inputbox">
+                    <input type="text" required="required" class="form-control form-control-alternative" formControlName="nom" id="nom" name="nom" >
+                    <span class="spantesxt">Nom</span>
+                    <br><br>
+                    <div *ngIf="
+                    f['nom'].touched &&
+                    f['nom'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['nom'].errors && f['nom'].errors['required']">
+                    Nom est requis.
+                  </div>
+                </div>
+                  </div>
+                  <div class="inputbox">
+                    <input type="text" required="required"  formControlName="num_tel" id="num_tel" name="num_tel">
+                    <span>N° de téléphonne</span>
+                    <br><br><div *ngIf="
+                    f['num_tel'].touched &&
+                    f['num_tel'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['num_tel'].errors && f['num_tel'].errors['required']">
+                    Numero de telephone est requis.
+                  </div>
+                    </div>
+                  </div>
+
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="login" id="login" name="login">
+                    <span>Login</span>
+                    <br><br> <div *ngIf="
+                    f['login'].touched &&
+                    f['login'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['login'].errors && f['login'].errors['required']">
+                    Adresse est requis.
+                  </div>
+                    </div>
+                  </div>
+                  <div class="inputbox">
+                    <div >
+                      <label style="color: dodgerblue;" >Direction</label>
+                      <fieldset class="row mb-10">
+                      <div class="select">
+                        <select class="form-select form-select-sm mb-3"  formControlName="role" >
+                          <option [ngValue]="null" disabled>cliquer pour choisire</option>
+                          <option value="responsable CC">Responsable des contrat client</option>
+                          <option value="responsable CF">Responsable des contrat fournisseur</option>
+                          <option value="admin">Administrateur</option>
+                        </select>
+                      </div>
+                    </fieldset>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2">
+
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="col-sm-4 ">
+
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="prenom" id="prenom" name="prenom">
+                    <span>Prénom</span>
+                    <br><br>
+                <div *ngIf="
+                f['prenom'].touched &&
+                f['prenom'].invalid
+              " class="text-danger">
+              <div *ngIf="f['prenom'].errors && f['prenom'].errors['required']">
+                Préom est requis!!
+              </div>
+            </div>
+                  </div>
+                  <div class="inputbox">
+                    <input type="text" required="required" formControlName="email" id="email" name="email">
+                    <span>Email</span>
+                    <br><br> <div *ngIf="
+                    f['email'].touched &&
+                    f['email'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                    Adresse est requis.
+                  </div>
+                    </div>
+                  </div>
+
+                  <div class="inputbox">
+                    <input type="password" required="required" formControlName="password" id="password" name="password">
+                    <span>password</span>
+                    <br><br> <div *ngIf="
+                    f['password'].touched &&
+                    f['password'].invalid
+                  " class="text-danger">
+                  <div *ngIf="f['password'].errors && f['password'].errors['required']">
+                    Adresse est requis.
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                <div class="row mb-3 ">
+                    <div class="col-sm-4 ">
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4 ">
+                      <button type="submit" class="btn btn-outline-primary m-2" >Enregistrer</button>
+
+                       <button type="reset" class="btn btn-outline-danger m-2"  [routerLink]="['/home/Compte/liste-comptes']" >Annuler</button>
+
+                    </div>
+                  </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-0 ">
+        </div>
+      </div>
+  </div>
+</div>

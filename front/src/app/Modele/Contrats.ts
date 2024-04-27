@@ -1,0 +1,21 @@
+export class Contrats{
+ id!:BigInteger;
+ ref_contrat!:any;
+ id_fournisseur!:any;
+ ref_marche!:any;
+ objet!:any;
+ montant!:any;
+ date_debut!:any;
+ date_fin!:any;
+ duree!:any;
+ date_de_preavis!:any;
+ mise_en_demeure!:any;
+ structure_technique!:any;
+ piece_joite!:any;
+ date_de_facturation!:any;
+ nom!:any;
+ id_payment!:any;
+ mant_paym!:any;
+ type_paym!:any;
+ date_paym!:any;
+}

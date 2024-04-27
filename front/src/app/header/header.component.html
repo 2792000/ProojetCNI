@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0" >
+  <a href="home" class="navbar-brand d-flex d-lg-none me-4">
+      <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+  </a>
+
+
+  <a href="#" class="sidebar-toggler flex-shrink-0">
+    <i class="fa fa-bars"></i>
+</a>
+  <form class="d-none d-md-flex ms-4" >
+      <input class="form-control border-0" type="search" placeholder="Rechercher " formControlName="recherch" id="recherch" name="recherch">
+  </form>
+
+  <div class="navbar-nav align-items-center ms-auto">
+ <!--<div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="fa fa-envelope me-lg-2"></i>
+          <span class="d-none d-lg-inline-flex">Message</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+          <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                  <img class="rounded-circle" src="assest/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                      <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                      <small>15 minutes ago</small>
+                  </div>
+              </div>
+          </a>
+          <hr class="dropdown-divider">
+          <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                      <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                      <small>15 minutes ago</small>
+                  </div>
+              </div>
+          </a>
+          <hr class="dropdown-divider">
+          <a href="#" class="dropdown-item">
+              <div class="d-flex align-items-center">
+                  <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                  <div class="ms-2">
+                      <h6 class="fw-normal mb-0">Jhon send you a message</h6>
+                      <small>15 minutes ago</small>
+                  </div>
+              </div>
+          </a>
+          <hr class="dropdown-divider">
+          <a href="#" class="dropdown-item text-center">See all message</a>
+      </div>
+  </div>-->
+
+      <div class="nav-item dropdown" *ngIf="( role == 'admin' && bloc == '0')">
+        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            <i class="fa fa-bell me-lg-2"></i>
+            <span class="d-none d-lg-inline-flex">Notificatin</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0" >
+           <div *ngFor="let c of Contrats " style="background-color:rgb(221, 60, 60) ;" >
+
+              <h6 class="fw-normal mb-0" > Attention !! Le contrat {{c.ref_contrat}} sura épuisé ,il reste moin de 3 mois</h6>
+              <small>Le contrat expire le {{c.date_fin}}</small>
+
+          <hr class="dropdown-divider">
+           </div>
+           <div *ngFor="let cF of ContratsFr" style="background-color:rgb(221, 60, 60) ;">
+
+              <h6 class="fw-normal mb-0"> Attention !! Le contrat {{cF.ref_contrat}} sura épuisé</h6>
+              <small>Le contrat expire le {{cF.date_fin}}</small>
+
+          <hr class="dropdown-divider">
+           </div>
+            <a routerLink="/home/contrat_client/listConRenv" class="dropdown-item text-center">Voir la liste Contrat Client </a>
+            <a routerLink="/home/contrat/listConRenv" class="dropdown-item text-center">Voir la liste Contrat Fournisseur </a>
+        </div>
+    </div>
+    <div class="nav-item dropdown" *ngIf="( role == 'responsable CC' && bloc == 0)">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+          <i class="fa fa-bell me-lg-2"></i>
+          <span class="d-none d-lg-inline-flex">Notificatin</span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0" >
+         <div *ngFor="let c of Contrats " style="background-color:rgb(221, 60, 60)  ;">
+          <a  [routerLink]="['/home/contrat_client/renouvelContrat',c.id_contratClient]" class="dropdown-item">
+            <h6 class="fw-normal mb-0"> Attention !! Le contrat {{c.ref_contrat}} sura épuisé</h6>
+            <small>Le contrat expire le {{c.date_fin}}</small>
+        </a>
+        <hr class="dropdown-divider">
+         </div>
+          <a routerLink="/home/contrat_client/listConRenv" class="dropdown-item text-center">Voir la liste </a>
+      </div>
+  </div>
+  <div class="nav-item dropdown" *ngIf="( role == 'responsable CF' && bloc == 0)">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+        <i class="fa fa-bell me-lg-2"></i>
+        <span class="d-none d-lg-inline-flex">Notificatin</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0" >
+
+       <div *ngFor="let cF of ContratsFr" style="background-color:rgb(221, 60, 60)  ;">
+        <a  [routerLink]="['/home/contrat/renouvelContrat',cF.id_contratFrn]" class="dropdown-item">
+          <h6 class="fw-normal mb-0"> Attention !! Le contrat {{cF.ref_contrat}} sura épuisé</h6>
+          <small>Le contrat expire le {{cF.date_fin}}</small>
+      </a>
+      <hr class="dropdown-divider">
+       </div>
+        <a routerLink="/home/contrat/listConRenv" class="dropdown-item text-center">Voir la liste </a>
+    </div>
+</div>
+      <div class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+
+              <span class="d-none d-lg-inline-flex"><b>{{user}}</b></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+              <a [routerLink]="['/home/Compte/profil',id]" class="dropdown-item">Mon Profil</a>
+
+              <a (click)="logout()" class="dropdown-item">Se déconnecter</a>
+          </div>
+      </div>
+  </div>
+</nav>

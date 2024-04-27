@@ -1,0 +1,87 @@
+
+  <div class="container-fluid pt-4 px-4" >
+    <div class="card-header" >
+
+<div>
+
+  <div class="card-header card-header-danger" id="title-Table">
+    <h3 class="card-title" id="titre">Historique de paiement : {{refcontart}} </h3><br>
+  </div>
+
+  <h1 class="text-center" class="card-title" id="titre"></h1>
+  <div class="row d-flex">
+    <div class="col-sm-4 createSegment">
+     <a class="btn dim_button create_new" [routerLink]="['/home/contrat/tranchfr',id_contratFrn]" > <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i> Ajouter une tranche </a>
+    </div>
+    <div class="col-sm-2 createSegment">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn dim_button create_new"  (click)="retourprecedent();" > <span class="glyphicon glyphicon-plus"></span>Retour</a>
+      <!-- <button class="btn btn-outline-primary m-2"  (click)="retourprecedent();">retour</button> -->
+    </div>
+</div>
+
+  <div *ngIf="Contrats.length > 0">
+  <!-- <div class="card mt-2">
+    <h5 class="card-header">{{refcontart}}</h5>
+    <small>{{objectcontract}}</small>
+  </div> -->
+
+
+<br/>
+<table class="table table-bordered">
+  <thead>
+      <tr >
+          <th scope="col">REf/CONTRAT</th>
+          <th scope="col">Nom client</th>
+          <th scope="col">Durée</th>
+          <th scope="col">Tranche</th>
+          <th scope="col">Type payement</th>
+          <th scope="col">Date payement</th>
+          <th scope="col">Action</th>
+
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of Contrats"  style="color: #000;">
+
+
+      <td>{{f.ref_contrat}}</td>
+      <td >{{f.nom}}</td>
+      <td>{{f.duree}}</td>
+      <td>{{f.mant_paym}} DT</td>
+      <td>{{f.type_paym}}</td>
+      <td>{{f.date_paym}}</td>
+      <td>
+        <button class="btn btn-danger btn-fill"style="margin-left: 10px;"data-bs-toggle="modal"
+        data-bs-target="#exampleDelete" (click)="delete(f.id_payment)"><i class="fa fa-trash"></i></button>
+
+      </td>
+  </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div *ngIf="Contrats.length == 0">
+  <p>pas historique de payement </p>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous supprimer ce tranche ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment <b> supprimer</b> le taranche de paiement du contrat de référence <b>&nbsp;  {{refcontart}}</b> ?
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="supprimer(id_payment)" >Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>

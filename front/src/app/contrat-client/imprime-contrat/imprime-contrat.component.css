@@ -1,0 +1,17 @@
+.justifier{
+  text-align: justify;
+text-justify: inter-word;
+}
+.titre{
+  font-size: 31px;
+  font-family: comic sans ms;
+
+}
+h5{
+  font-size: 15px;
+  font-family: comic sans ms;
+}
+h6{
+  font-size: 10px;
+  font-family: comic sans ms;
+}

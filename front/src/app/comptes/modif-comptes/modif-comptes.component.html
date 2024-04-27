@@ -1,0 +1,303 @@
+  <!--<div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded h-100 p-4">
+      <div class="bg-light rounded h-100 p-4">
+
+          <h3 align="center">Les Informations De l'utilisateur {{nom}}</h3>
+          <br>
+          <br>
+          <div *ngIf="(ruser=='admin' && userID != id)">
+          <button data-bs-toggle="modal"
+          data-bs-target="#exampleDelete" class=" btn btn-danger btn-danger">
+          <img src="assets/img/bloc.png" style="width: 50px; height: 50px;"> Bloquées Cette utilisateur</button>
+          <br><br></div>
+          <div class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous Bloqué ce utilisateur ?</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Voulez-vous vraiment <b>Bloqué</b>  l'utilisateur' <b>{{nom}}</b> ?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+                  <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="Bloque(id)">Bloquées</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <form>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  clas="col-sm-1 col-form-label"><h5>Nom </h5></label>
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom"  value="{{nom}}" required>
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+              <div class="col-sm-4 ">
+                <label  class="col-sm-1 col-form-label"><h5>prénom</h5></label>
+                <input type="text" class="form-control" [(ngModel)]="prenom"   id="prenom" name="prenom"  value="{{prenom}}" required>
+              </div>
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  class=" col-form-label">Numéro de téléphonne</label>
+                <input type="tel" class="form-control " [(ngModel)]="num_tel"   id="num_tel" name="num_tel"  value="{{num_tel}}" required>
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+              <div class="col-sm-4 ">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <input type="email" class="form-control"  [(ngModel)]="email" id="email" name="email"  value="{{email}}" required>
+              </div>
+            </div>
+
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  class=" col-form-label">Login</label>
+                <input type="text" class="form-control"  id="login" name="login"  [(ngModel)]="login" value="{{login}}" required>
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+              <div class="col-sm-4 ">
+                <label for="inputEmail3" class="col-form-label">Mot De Passe</label>
+                <input type="password" class="form-control"   id="pass_word" name="pass_word" [(ngModel)]="pass_word" value="{{pass_word}}" required>
+              </div>
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 ">
+                <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_utilisateur)">Enregistrer</button>
+                <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/Compte/liste-comptes']" *ngIf="(role=='admin')">Annuler</button>
+                <button type="button" class="btn btn-outline-danger m-2"  onclick="history.back()" *ngIf="(role!='admin')" >Annuler</button>
+              </div>
+            </div>
+
+
+          </form>
+      </div>
+    </div>
+    </div>-->
+    <!-- <div class="container-fluid pt-4 px-4" >
+      <div class="bg-light rounded h-100 p-4" align="center">
+    <div class="col-sm-12 col-xl-10">
+      <div class="bg-light rounded h-100 p-4">
+          <h3 align="center">Les Informations De l'utilisateur {{nom}}</h3>
+          <br><br>
+          <div *ngIf="(ruser=='admin' && userID != id)">
+            <button data-bs-toggle="modal"
+            data-bs-target="#exampleDelete" class=" btn btn-danger btn-danger" *ngIf="(bloc==0)">
+            <img src="assets/img/bloc.png" style="width: 50px; height: 50px;" > Bloquées Cette utilisateur</button>
+            <button data-bs-toggle="modal"
+            data-bs-target="#exampleDelete" class=" btn btn-primary btn-primary"*ngIf="(bloc==1)">
+            <img src="assets/img/bloc.png" style="width: 50px; height: 50px;" > débloqué Cette utilisateur</button>
+            <br><br></div>
+            <div *ngIf="(bloc==0)" class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous Bloqué ce utilisateur ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Voulez-vous vraiment <b>Bloqué</b>  l'utilisateur' <b>{{nom}}</b> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="Bloque(id)">Bloquées</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div *ngIf="(bloc==1)" class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous débloqué ce utilisateur ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    Voulez-vous vraiment <b>débloqué</b>  l'utilisateur' <b>{{nom}}</b> ?
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="deBloque(id)">Débloqué</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <form>
+              <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nom de la societé</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom" value="{{nom}}" required >
+                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Prénom</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" [(ngModel)]="prenom" id="prenom" name="prenom" value="{{prenom}}" required >
+                </div>
+            </div>
+              <div class="row mb-3">
+                  <label for="inputPassword3" class="col-sm-2 col-form-label">Direction d'utilisateur</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" [(ngModel)]="role" id="role" name="role" value="{{role}}" required disabled="role">
+                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">N° de téléphonne</label>
+                <div class="col-sm-10">
+                  <input type="tel" class="form-control" [(ngModel)]="num_tel" id="num_tel" name="num_tel" value="{{num_tel}}" required >
+                </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" [(ngModel)]="email" id="email" name="email" value="{{email}}" required >
+              </div>
+          </div>
+
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Login</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  [(ngModel)]="login" id="login" login="login" value="{{login}}" required >
+
+                </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Mot de pass</label>
+              <div class="col-sm-10">
+                <input type="password" class="form-control" [(ngModel)]="pass_word" id="pass_word" name="pass_word" value="{{pass_word}}" required disabled="pass_word" >
+              </div>
+          </div>
+
+          <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_utilisateur)" *ngIf="(role=='admin')">Enregistrer</button>
+          <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/Compte/liste-comptes']" *ngIf="(role=='admin')">Annuler</button>
+          <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier1(id_utilisateur)" *ngIf="(role!='admin')">Enregistrer</button>
+          <button  class="btn btn-outline-danger m-2"  routerLink="/home" *ngIf="(role!='admin')">Annuler</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="container-fluid pt-4 px-4" >
+      <div class="card-header" >
+        <div class="row mb-3 ">
+          <div class="col-sm-8 ">
+          </div>
+          <div class="col-sm-12">
+            <div *ngIf="(ruser=='admin' && userID != id)">
+              <button data-bs-toggle="modal"
+              data-bs-target="#exampleDelete" class=" btn btn-danger btn-danger" *ngIf="(bloc==0)">
+              <img src="assets/img/bloc.png" style="width: 50px; height: 50px;" > Bloquées Cette utilisateur</button>
+              <button data-bs-toggle="modal"
+              data-bs-target="#exampleDelete" class=" btn btn-primary btn-primary"*ngIf="(bloc==1)">
+              <img src="assets/img/bloc.png" style="width: 50px; height: 50px;" > débloqué Cette utilisateur</button>
+              <br><br></div>
+              <div *ngIf="(bloc==0)" class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous Bloqué ce utilisateur ?</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Voulez-vous vraiment <b>Bloqué</b>  l'utilisateur' <b>{{nom}}</b> ?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+                      <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="Bloque(id)">Bloquées</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="card-header card-header-danger" id="title-Table">
+              <h3 class="card-title" id="titre">Les Informations De l'utilisateur</h3><br>
+            </div>
+
+            <div class="center"  >
+
+              <form  >
+                <div class="row mb-5 "  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 " >
+                    <div class="inputbox">
+                <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="nom"  value="{{nom}}" required>
+                      <span class="spantesxt">Nom</span>
+
+                    </div>
+                    <div class="inputbox">
+                <input type="tel" class="form-control " [(ngModel)]="num_tel"   id="num_tel" name="num_tel"  value="{{num_tel}}" required>
+
+                      <span>N° de téléphonne</span>
+                    </div>
+
+                    <div class="inputbox">
+                <input type="text" class="form-control"  id="login" name="login"  [(ngModel)]="login" value="{{login}}" required>
+
+                      <span>Login</span>
+                    </div>
+                    <span>Direction</span>
+                    <div class="inputbox">
+
+                      <input type="text" required="required"  id="role" name="role" disabled="role" value="{{role}}" required>
+
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 ">
+
+                    <div class="inputbox">
+                      <input type="text" class="form-control" [(ngModel)]="prenom"   id="prenom" name="prenom"  value="{{prenom}}" required>
+                      <span>Prénom</span>
+
+                    </div>
+                    <div class="inputbox">
+                <input type="email" class="form-control"  [(ngModel)]="email" id="email" name="email"  value="{{email}}" required>
+
+                      <span>Email</span>
+                    </div>
+
+                    <div class="inputbox">
+                                      <input type="password" class="form-control"   id="pass_word" name="pass_word" [(ngModel)]="pass_word" value="{{pass_word}}" required>
+
+                      <span>password</span>
+
+                    </div>
+                  </div>
+                </div>
+                  <div class="row mb-3 ">
+                      <div class="col-sm-4 ">
+                      </div>
+                      <div class="col-sm-4">
+                      </div>
+                      <div class="col-sm-4 ">
+                        <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_utilisateur)" *ngIf="(role=='admin')">Enregistrer</button>
+                        <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/Compte/liste-comptes']" *ngIf="(role=='admin')">Annuler</button>
+                        <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier1(id_utilisateur)" *ngIf="(role!='admin')">Enregistrer</button>
+                        <button  class="btn btn-outline-danger m-2"  routerLink="/home" *ngIf="(role!='admin')">Annuler</button>
+
+                      </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-0 ">
+          </div>
+        </div>
+    </div>
+  </div>

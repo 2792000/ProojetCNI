@@ -1,0 +1,93 @@
+<div class="sidebar pe-4 pb-3">
+  <nav class="navbar bg-light navbar-light">
+      <!--<a href="index.html" class="navbar-brand mx-4 mb-3">
+          <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>DASHMIN</h3>
+      </a>--><br><br><br>
+
+      <div class="d-flex align-items-center ms-3 mb-3">
+        <div class="position-relative">
+          <!--class="rounded-circle"-->
+          <img src="assets/img/logo.png" alt="CNI LOGO" style="width: 60px; height: 60px;">
+          <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+      </div>
+        <div class="position-relative">
+          <h6 class="mb-0"> {{user}}</h6>
+          <span *ngIf="( role == 'admin')"> Administrateur</span>
+          <span *ngIf="( role != 'admin')"> Responsable </span>
+      </div>
+      </div>
+      <div class="navbar-nav w-100">
+        <a routerLink="/home/dashboard" class="nav-item nav-link " *ngIf="(role  == 'admin')"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+        <div class="nav-item dropdown" *ngIf="( role == 'admin')">
+          <a href="#Compte" class="nav-link dropdown-toggle " data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gérer les comptes</a>
+          <div class="dropdown-menu bg-transparent border-0" id="contrat">
+              <a routerLink="/home/Compte/ajoutCom" class="dropdown-item ">Ajouter un compte  </a>
+              <a routerLink="/home/Compte/liste-comptes" class="dropdown-item">Liste des comptes</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown" *ngIf="(role == 'responsable CC')">
+          <a href="#Compte" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gérer les clients</a>
+          <div class="dropdown-menu bg-transparent border-0" id="contrat">
+              <a routerLink="/home/clients/ajout-client" class="dropdown-item">Ajouter un client </a>
+              <a routerLink="/home/clients/liste-client" class="dropdown-item">Liste des clients</a>
+          </div>
+        </div>
+        <div class="nav-item dropdown" *ngIf="(role == 'responsable CF')">
+          <a href="#Compte" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gérer les fournisseurs</a>
+          <div class="dropdown-menu bg-transparent border-0" id="contrat">
+              <a routerLink="/home/fournisseur/ajout-fournisseur" class="dropdown-item">Ajouter un fournisseur </a>
+              <a routerLink="/home/fournisseur/liste-fournisseur" class="dropdown-item">Liste des fournisseurs</a>
+          </div>
+        </div>
+
+          <div class="nav-item dropdown" *ngIf="(role == 'responsable CC')">
+            <a href="#contrat" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2" style="margin: left 100px;"></i>Gérer les Contrats <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; des clients</a>
+            <div class="dropdown-menu bg-transparent border-0" id="contrat">
+                <a routerLink="/home/contrat_client/creationContrat" class="dropdown-item" class="dropdown-item">Création de contrat client</a>
+                <a routerLink="/home/contrat_client/tableauBor" class="dropdown-item">La liste des contrats clients</a>
+                <a routerLink="/home/contrat_client/listConRenv" class="dropdown-item" style="text-align:center ;">La liste des contrats clients <br> arrivant à échéancer</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown" *ngIf="(role == 'admin')">
+          <a href="#contrat" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2" style="margin: left 100px;"></i>Gérer les Contrats <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; des clients</a>
+          <div class="dropdown-menu bg-transparent border-0" id="contrat">
+              <a routerLink="/home/contrat_client/tableauBor" class="dropdown-item">La liste des contrats clients</a>
+              <a routerLink="/home/contrat_client/listConRenv" class="dropdown-item" style="text-align:center ;">La liste des contrats clients <br> arrivant à échéancer</a>
+          </div>
+      </div>
+        <div class="nav-item dropdown" *ngIf="(role == 'responsable CF' )">
+          <a href="#contrat" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gérer les Contrats <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; des fournisseurs</a>
+          <div class="dropdown-menu bg-transparent border-0" id="contrat">
+              <a routerLink="/home/contrat/ajout" class="dropdown-item">Création de Contrat Fournisseur</a>
+              <a routerLink="/home/contrat/TableauBor" class="dropdown-item" style=" font-size: 14px;">La liste des Contrats Fournisseurs</a>
+              <a routerLink="/home/contrat/listConRenv" class="dropdown-item" style="text-align:center ;font-size: 14px;">La liste des Contrats Fournisseurs<br> arrivant à échéancer</a>
+          </div>
+
+      </div>
+      <div class="nav-item dropdown" *ngIf="(role == 'admin')">
+        <a href="#contrat" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>Gérer les Contrats <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; des fournisseurs</a>
+        <div class="dropdown-menu bg-transparent border-0" id="contrat">
+
+            <a routerLink="/home/contrat/TableauBor" class="dropdown-item"style=" font-size: 14px;">La liste des Contrats Fournisseurs</a>
+            <a routerLink="/home/contrat/listConRenv" class="dropdown-item" style="text-align:center ; font-size: 14px;">La liste des Contrats Fournisseurs<br> arrivant à échéancer</a>
+        </div>
+
+    </div>
+    <div class="nav-item dropdown">
+      <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"><i class="far fa-file-alt me-2"></i>Archive</a>
+      <div class="dropdown-menu bg-transparent border-0">
+          <a routerLink="/home/contrat/archivecf" class="dropdown-item" *ngIf="(role == 'admin' ||role == 'responsable CF')"> Contrat fournisseur </a>
+          <a routerLink="/home/contrat_client/archivecc" class="dropdown-item" *ngIf="(role == 'admin' ||role == 'responsable CC')">Contrat client</a>
+      </div>
+  </div>
+  <a routerLink="/home/corbille" class="nav-item nav-link " ><i class="fa fa-trash fa-lg"></i>Corbeille</a>
+      <!-- <div class="nav-item dropdown" >
+        <a href="#contrat" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>suivi Contrat </a>
+        <div class="dropdown-menu bg-transparent border-0" id="contrat">
+            <a routerLink="/home/contrat/TableauBor" class="dropdown-item" *ngIf="(role == 'responsable CF' || role == 'admin')">Tableau de bord des contrats Fournisseur</a>
+            <a routerLink="/home/contrat_client/tableauBor" class="dropdown-item"  *ngIf="(role == 'responsable CC' || role == 'admin')" >Tableau de bord des contrats Client</a>
+        </div>
+    </div> -->
+      </div>
+  </nav>
+</div>

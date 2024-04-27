@@ -1,0 +1,22 @@
+.ok {
+  background-color: #7cd4c4;
+}
+
+.errur {
+  background-color: #fce4e2;
+}
+.valide {
+  background-color: #ffffc2;
+}
+
+.table1{
+  border:"1";
+  text-align: top;
+  text-align: center;
+
+}
+.table2{
+
+  border:"1";
+    margin:"20px";
+}

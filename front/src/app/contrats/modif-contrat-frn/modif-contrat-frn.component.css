@@ -1,0 +1,314 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+:root {
+  --select-border: #777;
+  --select-focus: blue;
+  --select-arrow: var(--select-border);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.card{
+  box-shadow:0 0 70px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%) !important;
+}
+#title-Table{
+
+  border-radius: 10px;
+  background-color: #78acda   ;
+  margin-left: 80px ;
+  margin-right: 80px ;
+  margin-bottom: 50px ;
+  bottom: 19px;
+  margin-top: 34px;
+  text-align: center;
+  color: aliceblue;
+}
+#titre{
+  font-size: 31px;
+  color: white;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+}
+select::-ms-expand {
+  display: none;
+}
+select {
+  outline: none;}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+  font-family: "Sansita Swashed", cursive;
+}
+span{
+  color: rgb(0, 0, 0);
+}
+.center {
+  position: relative;
+  padding: 50px 50px;
+  background: #F3F6F9;
+  border-radius: 10px;
+}
+.center h1 {
+  font-size: 2em;
+  border-left: 5px solid dodgerblue;
+
+  padding: 10px;
+  color: #000;
+  letter-spacing: 5px;
+  margin-bottom: 60px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+.center .inputbox {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 50px;
+}
+.center .inputbox input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid #000;
+  outline: none;
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 1.2em;
+}
+.center .inputbox:last-child {
+  margin-bottom: 0;
+}
+.center .inputbox span {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 1em;
+  transition: 0.6s;
+  font-family: sans-serif;
+}
+.center .inputbox input:focus ~ span,
+.center .inputbox input:valid ~ span {
+  transform: translateX(-13px) translateY(-35px);
+  font-size: 1em;
+}
+.center .inputbox [type="button"] {
+  width: 50%;
+  background: dodgerblue;
+  color: #fff;
+  border: #fff;
+}
+.center .inputbox:hover [type="button"] {
+  background: linear-gradient(45deg, greenyellow, dodgerblue);
+}
+
+
+
+
+.titer{
+  text-align:"center";
+  margin-bottom: "50px";
+}
+
+.table1 {
+  background-color: #aed9ea;
+  color: #000000;
+  text-align: center;
+}
+.table2{
+  background-color: #cbe2eb;
+  color: #000000;
+}
+.det{
+  color: #78acda;
+  font-size: large;
+  padding-left: 25px !important;
+  padding-bottom: 15px !important;
+  font-family: Comic sans ms;
+}
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+#card-Table{
+  padding-left: 97px;
+  padding-right: 66px;
+  padding-top: 27px;
+  padding-bottom: 20px;
+}
+th{
+  color: #78acda   ;
+  font-size: large;
+  padding-left: 25px !important;
+  padding-bottom: 15px !important;
+  font-family: Comic sans ms;
+}
+td{
+  padding-left: 30px !important;
+  padding-top: 15px !important;
+}
+
+#alignement{
+  padding-left: 90px !important;
+}
+
+#formSearch{
+  width: 300px !important;
+}
+#inputSearch{
+  padding-left: 50px !important;
+  font-size: 15px !important;
+}
+#search{
+  display: grid;
+  grid-template-columns: 250px auto;
+}
+#btnAddSearch{
+  display: grid;
+  grid-template-columns: 420px auto;
+  padding-left: 100px !important;
+}
+
+#formSearch{
+margin: 20px;
+}
+
+.mat-input-element {
+  caret-color: #fc9209 !important;
+}
+
+#AlertSucces{
+  color: green;
+  background-color: #d4edda;
+  padding: 20px;
+  margin-top: 15px;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+#btn{
+  margin-top: 42px;
+  background-color: #fc9209;
+  color: wheat;
+  font-size: 20px;
+  margin-left: 300px;
+}
+
+#LienDetails:hover{
+  text-decoration: tomato wavy underline;
+  cursor: pointer;
+
+  }
+
+
+#entete-Table{
+  color: #fc9209;
+
+  font-size: 15px;
+}
+
+
+a{
+  cursor: pointer;
+}
+
+table.table td a.update {
+    color: #FFC107;
+}
+
+table.table td a.delete {
+  color: #F44336;
+  cursor: pointer;
+  margin: 5px;
+}
+
+
+
+#TostDangerTile{
+  color: red;
+  font-size: large;
+}
+
+#TostDangerContenu{
+  font-size: 18px;
+}
+
+
+#TostSuccessTile{
+  color: green;
+  font-size: large;
+}
+
+#TostSuccessContenu{
+  font-size: 18px;
+}
+
+#ToastDiv{
+  font-family: comic sans ms;
+  margin-right: 2rem !important;
+  position: absolute !important;
+  padding: 10px;
+  bottom: 2rem !important;
+  right:0 !important;
+  animation: fadein 3s;
+ }
+
+@keyframes fadein {
+  from {
+      opacity:0;
+  }
+  to {
+      opacity:1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

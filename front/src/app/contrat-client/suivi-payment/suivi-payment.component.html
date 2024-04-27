@@ -1,0 +1,230 @@
+
+  <div class="container-fluid pt-4 px-4" >
+    <div class="card-header" >
+
+<div>
+
+  <div class="card-header card-header-danger" id="title-Table">
+    <h3 class="card-title" id="titre">Historique de paiement : {{refcontart}} </h3><br>
+  </div>
+
+  <h1 class="text-center" class="card-title" id="titre"></h1>
+  <div class="row d-flex">
+    <div class="col-sm-4 createSegment">
+     <a class="btn dim_button create_new" [routerLink]="['/home/contrat_client/tranche',id_contratClient]" > <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i> Ajouter une tranche </a>
+    </div>
+    <div class="col-sm-2 createSegment">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn dim_button create_new"  (click)="retourprecedent();" > <span class="glyphicon glyphicon-plus"></span>Retour</a>
+      <!-- <button class="btn btn-outline-primary m-2"  (click)="retourprecedent();">retour</button> -->
+    </div>
+</div>
+
+  <div *ngIf="Contrats.length > 0">
+   <!-- <div class="card mt-2">
+    <h5 class="card-header">Montant de contrat:{{montant}} DT <h5>Somme des tranche: {{somme}} DT </h5> </h5>
+    <small  ></small>
+  </div> -->
+
+
+<br/>
+<table class="table table-bordered">
+  <thead>
+      <tr >
+          <th scope="col">REf/CONTRAT</th>
+          <th scope="col">Nom client</th>
+          <th scope="col">Durée</th>
+          <th scope="col">Tranche</th>
+          <th scope="col">Type payement</th>
+          <th scope="col">Date payement</th>
+          <th scope="col">Action</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of Contrats"  style="color: #000;">
+
+
+      <td>{{f.ref_contrat}}</td>
+      <td >{{f.nom}}</td>
+      <td>{{f.duree}}</td>
+      <td>{{f.mant_paym}} DT</td>
+      <td>{{f.type_paym}}</td>
+      <td>{{f.date_paym}}</td>
+      <td>
+      <!-- <div class="btn-group" style="margin-top:-8px;">
+        <button class="btn btn-danger rounded-pill m-2"style="color:#D41616;border: 1px solid #D41616"  data-toggle="dropdown" data-bs-toggle="modal"
+        data-bs-target="#exampleDelete" (click)="delete(f.id_payment)">
+
+        </button>
+
+</div> -->
+<button class="btn btn-danger btn-fill"style="margin-left: 10px;"data-bs-toggle="modal"
+data-bs-target="#exampleDelete" (click)="delete(f.id_payment)"><i class="fa fa-trash"></i></button>
+</td>
+  </tr>
+
+  </tbody>
+</table>
+</div>
+
+<div *ngIf="Contrats.length == 0">
+  <p>pas historique de payement </p>
+</div>
+</div>
+</div>
+</div>
+<div class="modal fade" id="exampleDelete" tabindex="-1" aria-labelledby="exampleDeleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleDeleteLabel">Voulez-vous supprimer ce tranche ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Voulez-vous vraiment <b> supprimer</b> le taranche de paiement du contrat de référence <b>&nbsp;  {{refcontart}}</b> ?
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary m-2" data-bs-dismiss="modal">Annuler</button>
+        <button type="button" class="btn btn-outline-danger m-2" data-bs-dismiss="modal" (click)="supprimer(id_payment)" >Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+<div class="container p-30">
+  <div class="row">
+      <div class="col-md-12 main-datatable">
+        <div class="card-header card-header-danger" id="title-Table">
+          <h3 class="card-title" id="titre">Historique de paiement : {{refcontart}}</h3><br>
+        </div>
+        <div class="card mt-2">
+          <h5 class="card-header">Montant de contrat:{{montant}} DT <h5>Somme des tranche: {{somme}} DT </h5> </h5>
+          <small  ></small>
+        </div>
+          <div class="card_body">
+              <div class="row d-flex">
+                <div class="col-sm-1 createSegment">
+                  <a class="btn dim_button create_new"  (click)="retourprecedent();" > <span class="glyphicon glyphicon-plus"></span>Retour</a>
+                </div>
+                  <div class="col-sm-4 createSegment">
+                    <a class="btn dim_button create_new" [routerLink]="['/home/contrat_client/tranche',id_contratClient]" > <span class="glyphicon glyphicon-plus"></span><i class="fa fa-plus" aria-hidden="true"></i> Ajouter une tranche </a>
+                  </div>
+                  <div class="col-sm-6 add_flex">
+                      <div class="form-group searchInput" aria-autocomplete="on" (keyup)="filterData($event)">
+                          <label for="email">Recherche:</label>
+                          <input type="search"  class="form-control" id="filterbox" matInput placeholder=" ">
+                      </div>
+                  </div>
+              </div>
+              <div class="overflow-x">
+
+                  <table style="width:100%;" id="filtertable" class="table cust-datatable dataTable no-footer" mat-table matSort [dataSource]="dataSource!"  >
+                               <thead>
+                                   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                               </thead>
+                          <tr>
+                             <ng-container matColumnDef="ref_contrat">
+                               <th mat-header-cell *matHeaderCellDef  style="min-width:30px;padding-right: 4px;">Référence contrat</th>
+                             <td  mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:10px;">
+                              <i class="fa fa-pencil-square-o fa-lg" style="color:#3E8D07;"></i> {{element.ref_contrat}}  </p></td>
+                             </ng-container>
+
+
+
+
+                             <ng-container matColumnDef="nom">
+                               <th mat-header-cell *matHeaderCellDef  style="min-width:50px;padding-right: 4px;">&nbsp;&nbsp;clients</th>
+                               <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:10px;"> {{element.nom}}</p></td>>
+                             </ng-container>
+
+
+                             <ng-container matColumnDef="objet">
+                               <th mat-header-cell *matHeaderCellDef  style="min-width:50px;padding-right: 4px;">Objet</th>
+                               <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:10px;">{{element.objet}}</p></td>
+                             </ng-container>
+
+                             <ng-container matColumnDef="mant_paym">
+                               <th mat-header-cell *matHeaderCellDef  style="min-width:50px;padding-right: 4px;">Tranche</th>
+
+                               <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:10px;"> {{element.mant_paym}} DT</p></td>
+                             </ng-container>
+                             <ng-container matColumnDef="date_paym">
+                               <th mat-header-cell *matHeaderCellDef  style="min-width:50px;padding-right: 4px;">Date début</th>
+                               <td mat-cell *matCellDef="let element"><p  style="text-align:center;padding-right:10px;">{{element.date_paym}}</p></td>
+                             </ng-container>
+
+
+
+
+                            <ng-container matColumnDef="element">
+                              <th  mat-header-cell *matHeaderCellDef style="min-width:150px;">&nbsp;&nbsp;Action</th>
+                              <td mat-cell *matCellDef="let element" >
+
+
+
+                                  <div class="btn-group" style="margin-top:-8px;">
+                                    <a class="dropdown-toggle dropdown_icon"style="color:#D41616;border: 1px solid #D41616"  data-toggle="dropdown" data-bs-toggle="modal"
+                                    data-bs-target="#exampleDelete" (click)="delete(element)">
+                                      <i class="fa fa-trash fa-lg" style="color:#D41616;"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown_more">
+                                        <li class="li1">
+
+                                    <a > <i class="fa fa-trash fa-lg" style="color:#D41616;">&nbsp; <b>Supprimer</b></i></a>
+                                  </li>
+                                </ul>
+                            </div>
+
+                              </td>
+                            </ng-container>
+                            <tbody>
+                              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                            </tbody>
+                  </table>
+                  <div>
+                    <mat-paginator  #paginator
+                    [pageSize]="4"
+                    [pageSizeOptions]="[ 2, 3, 4, 5, 10, 25, 100]" >
+                  </mat-paginator>
+                  </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+</div> -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.14/js/jquery.dataTables.min.js"></script>
+<script src="js/main.js">
+$(document).ready(function() {
+var dataTable = $('#filtertable').DataTable({
+  "pageLength":5,
+  'aoColumnDefs':[{
+      'bSortable':false,
+      'aTargets':['nosort'],
+  }],
+  columnDefs:[
+      {type:'date-dd-mm-yyyy',aTargets:[5]}
+  ],
+  "aoColumns":[
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+  ],
+  "order":false,
+  "bLengthChange":false,
+  "dom":'<"top">ct<"top"p><"clear">'
+});
+$("#filterbox").keyup(function(){
+  dataTable.search(this.value).draw();
+});
+} );
+</script>

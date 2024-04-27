@@ -1,0 +1,198 @@
+<!--
+<div class="container-fluid pt-4 px-4">
+    <div class="bg-light rounded h-100 p-4">
+      <div class="bg-light rounded h-100 p-4">
+
+          <h3 class="mb-4 ">Les Informations Du Fournisseur</h3>
+          <br>
+          <br>
+          <form>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  clas="col-sm-1 col-form-label"><h5>Nom de la société </h5></label>
+                <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom" value="{{nom}}" required >
+
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  class=" col-form-label">Numéro de téléphonne</label>
+                <input type="tel" class="form-control" [(ngModel)]="num_tel" id="num_tel" name="num_tel" value="{{num_tel}}" required >
+              </div>
+
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+                <label  class=" col-form-label">Fax</label>
+                <input type="tel" class="form-control" [(ngModel)]="fax" id="fax" name="fax" value="{{fax}}" required >
+              </div>
+              <div class="col-sm-2">
+
+              </div>
+              <div class="col-sm-4 ">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                <input type="email" class="form-control" [(ngModel)]="email" id="email" name="email" value="{{email}}" required >
+
+              </div>
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-6 ">
+                <label  class="col-sm-2 col-form-label">Adresse</label>
+                <textarea type="text" class="form-control" [(ngModel)]="adresse" id="adresse" name="adresse" value="{{adresse}}" required >
+                </textarea>
+              </div>
+
+            </div>
+            <div class="row mb-3 ">
+              <div class="col-sm-4 ">
+
+              </div>
+              <div class="col-sm-4">
+
+              </div>
+              <div class="col-sm-4 ">
+                <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_fournisseur)">Enregistrer</button>
+                <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/fournisseur/liste-fournisseur']" >Annuler</button>
+              </div>
+            </div>
+
+
+          </form>
+      </div>
+    </div>
+    </div>-->
+    <!-- <div class="container-fluid pt-4 px-4" >
+      <div class="bg-light rounded h-100 p-4" align="center">
+    <div class="col-sm-12 col-xl-10">
+      <div class="bg-light rounded h-100 p-4">
+          <h3 align="center">Les Informations Du Fournisseur</h3>
+          <br><br>
+          <form>
+              <div class="row mb-3">
+                  <label for="inputEmail3" class="col-sm-2 col-form-label">Nom de la societé</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom" value="{{nom}}" required >
+                  </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">N° de téléphonne</label>
+                <div class="col-sm-10">
+                  <input type="tel" class="form-control" [(ngModel)]="num_tel" id="num_tel" name="num_tel" value="{{num_tel}}" required >
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="inputPassword3" class="col-sm-2 col-form-label">Fax</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control"  [(ngModel)]="fax" id="fax" name="fax" value="{{fax}}" required >
+
+                </div>
+            </div>
+            <div class="row mb-3">
+              <label for="inputEmail3" class="col-sm-2 col-form-label">Adresse</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" [(ngModel)]="adresse" id="adresse" name="adresse" value="{{adresse}}" required >
+              </div>
+          </div>
+          <div class="row mb-3">
+              <label for="inputPassword3" class="col-sm-2 col-form-label">Email</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" [(ngModel)]="email" id="email" name="email" value="{{email}}" required >
+              </div>
+          </div>
+
+          <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_fournisseur)">Enregistrer</button>
+          <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/fournisseur/liste-fournisseur']" >Annuler</button>
+          </form>
+          </div>
+        </div>
+      </div>
+    </div> -->
+<div class="container-fluid pt-4 px-4" >
+  <div class="card-header" >
+    <div class="row mb-3 ">
+      <div class="col-sm-8 ">
+          </div>
+          <div class="col-sm-12">
+            <div class="card-header card-header-danger" id="title-Table">
+              <h3 class="card-title" id="titre">Modifier un fournisseur</h3><br>
+            </div>
+            <div class="center"  >
+
+              <form >
+                <div class="row mb-5 "  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 " >
+                    <div class="inputbox">
+                <input type="text" class="form-control" [(ngModel)]="nom" id="nom" name="nom" value="{{nom}}" required >
+
+                      <span class="spantesxt">Nom de societé</span>
+
+                    </div>
+                    <div class="inputbox">
+                      <input type="text" class="form-control"  [(ngModel)]="fax" id="fax" name="fax" value="{{fax}}" required >
+
+                      <span>Fax</span>
+
+                    </div>
+                    <div class="inputbox">
+                <input type="tel" class="form-control" [(ngModel)]="num_tel" id="num_tel" name="num_tel" value="{{num_tel}}" required >
+
+                      <span>N° de téléphonne</span>
+
+                    </div>
+
+                  </div>
+                  <div class="col-sm-2">
+
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 ">
+
+                    <div class="inputbox">
+                      <input type="email" class="form-control" [(ngModel)]="email" id="email" name="email" value="{{email}}" required >
+                      <span>Email</span>
+
+                    </div>
+                    <div class="inputbox">
+                      <input type="text" class="form-control" [(ngModel)]="adresse" id="adresse" name="adresse" value="{{adresse}}" required >
+                      <span>Adresse</span>
+
+                    </div>
+
+
+                  </div>
+                </div>
+
+                  <div class="row mb-3 ">
+                      <div class="col-sm-4 ">
+                      </div>
+                      <div class="col-sm-4">
+                      </div>
+                      <div class="col-sm-4 ">
+
+                        <button type="submit" class="btn btn-outline-success m-2" (click)=" modifier(id_fournisseur)">Enregistrer</button>
+                        <button  class="btn btn-outline-danger m-2"  [routerLink]="['/home/fournisseur/liste-fournisseur']" >Annuler</button>
+
+                      </div>
+                    </div>
+
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-0 ">
+
+
+          </div>
+        </div>
+
+
+
+    </div>
+
+
+  </div>

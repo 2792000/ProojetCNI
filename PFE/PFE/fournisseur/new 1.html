@@ -1,0 +1,22 @@
+  <html>
+    <button   id="envoi">envoi</button>
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+  <script>
+    var btn=document.getElementById('envoi');
+    btn.addEventListener('click',function(e){
+      e.preventDefault()
+      Email.send({
+    Host : "smtp.gmail.com",
+    Username : "57amine6@gmail.com",
+    Password : "ncoytpcnmmhniiet",
+    To : '57amine6@gmail.com',
+    From : "mohamedhlel321@gmail.com",
+    Subject : "This is the subject",
+    Body : "And this is the body"
+}).then(
+  message => alert(message)
+);
+})
+</script>
+  </html>

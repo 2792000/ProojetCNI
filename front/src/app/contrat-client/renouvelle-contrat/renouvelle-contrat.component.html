@@ -1,0 +1,179 @@
+<!-- <div class="container-fluid pt-4 px-4">
+  <div class="bg-light rounded h-100 p-4">
+    <div class="bg-light rounded h-100 p-4">
+
+        <h3 class="mb-4 ">Renouvellement De Contrat Client </h3>
+        <br>
+        <br>
+        <form >
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  clas="col-sm-1 col-form-label"><h5>RÉFÉRENCE CONTRAT </h5></label>
+              <input type="text" class="form-control"  id="ref_contrat" name="ref_contrat" [(ngModel)]="ref_contrat" value="{{ref_contrat}}" required disabled="ref_contrat">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-sm-12 col-form-label"><h5>OBJET</h5></label>
+              <textarea type="text" class="form-control"   id="objet" name="objet"  [(ngModel)]="objet" value="{{objet}}" required disabled="objet"></textarea>
+            </div>
+
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-sm-12 col-form-label"><h5>Choisire Client</h5></label>
+              <input class="form-control" id="id_client" name="id_client"  value="{{profil}}" disabled>
+            </div>
+
+          </div>
+
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-sm-12 col-form-label"><h5>MONTANT</h5></label>
+              <input type="text" class="form-control"  id="montant" name="montant"  [(ngModel)]="montant" value="{{montant}}" required disabled="ref_contrat">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <label  class=" col-form-label"><h5>DURÉE</h5></label>
+            <div class="col-sm-4 ">
+
+              <input type="text" class="form-control"  id="duree" name="duree"  [(ngModel)]="duree" value="{{duree}}" required>
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-form-label"><h5>DATE DE DÉBUT</h5></label>
+              <input type="date" class="form-control"  id="date_debut" name="date_debut"  [(ngModel)]="date_debut" value="{{date_debut}}" required>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label  class="col-sm-12 col-form-label"><h5>DATE DE FIN</h5></label>
+              <input type="date" class="form-control"  id="date_fin" name="date_fin"  [(ngModel)]="date_fin" value="{{date_fin}}" required>
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-form-label"><h5>DATE DE FACTURATION</h5></label>
+              <input type="date" class="form-control"  id="date_de_facturation" name="date_de_facturation"  [(ngModel)]="date_de_facturation" value="{{date_de_facturation}}" required>
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label  class="col-sm-12 col-form-label"><h5>DATE DE PRÉAVIS</h5></label>
+              <input type="date" class="form-control"  id="date_de_preavis" name="date_de_preavis"  [(ngModel)]="date_de_preavis" value="{{date_de_preavis}}" required>
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+              <label  class=" col-form-label"><h5>MISE EN DEMEURE</h5></label>
+              <input type="text" class="form-control"  id="mise_en_demeure" name="mise_en_demeure"  [(ngModel)]="mise_en_demeure" value="{{mise_en_demeure}}" required disabled="mise_en_demeure">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+            <div class="col-sm-4 ">
+              <label class="col-sm-12 col-form-label"><h5>STRUCTURE TECHNIQUE</h5></label>
+              <input type="text" class="form-control"  id="structure_technique" name="structure_technique" [(ngModel)]="structure_technique" value="{{structure_technique}}" required disabled="structure_technique">
+            </div>
+            <div class="col-sm-4 ">
+              <label class="col-sm-12 col-form-label"><h5></h5>PIECE JOITE</label>
+              <input type="text" class="form-control"  [(ngModel)]="piece_joite" id="piece_joite" name="piece_joite"   value="{{piece_joite}}" required disabled="piece_joite">
+            </div>
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-6 ">
+
+
+            </div>
+
+          </div>
+          <div class="row mb-3 ">
+            <div class="col-sm-4 ">
+
+            </div>
+            <div class="col-sm-4">
+
+            </div>
+            <div class="col-sm-4 ">
+              <button type="submit" class="btn btn-outline-success m-2" (click)="modifier(id_contratClient)">Enregister</button>
+              <button type="reset" class="btn btn-outline-danger m-2" >Annuler</button>
+            </div>
+          </div>
+
+
+        </form>
+    </div>
+  </div>
+  </div> -->
+
+    <div class="container-fluid pt-4 px-4" >
+      <div class="card-header" >
+        <div class="row mb-3 ">
+          <div class="col-sm-8 ">
+          </div>
+          <div class="col-sm-12">
+            <div class="card-header card-header-danger" id="title-Table">
+              <h3 class="card-title" id="titre">Renouvellement de contrat client de réference :{{ref_contrat}}</h3>
+            </div>
+            <div class="center"  >
+
+              <form   >
+                <div class="row mb-5 "  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 " >
+                    <h6 class="spantesxt">Date de début</h6>
+                    <div class="inputbox">
+
+                      <input type="date" class="form-control"  id="date_debut" name="date_debut"  [(ngModel)]="date_debut" value="{{date_debut}}" required>
+
+
+                    </div>
+                    <h6> Date de facturation</h6>
+                    <div class="inputbox">
+                      <input type="date" class="form-control"  id="date_de_facturation" name="date_de_facturation"  [(ngModel)]="date_de_facturation" value="{{date_de_facturation}}" required>
+
+
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+
+                  </div>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <div class="col-sm-4 ">
+                    <h6  >Date de fin</h6>
+                    <div class="inputbox">
+                      <input type="date" class="form-control"  id="date_fin" name="date_fin"  [(ngModel)]="date_fin" value="{{date_fin}}" required>
+                      </div>
+                      <h6>Durée</h6>
+                    <div class="inputbox">
+                      <input type="text" class="form-control"  id="duree" name="duree"  [(ngModel)]="duree" value="{{duree}}" required>
+                    </div>
+                    </div>
+                </div>
+                  <div class="row mb-3 ">
+                      <div class="col-sm-4 ">
+                      </div>
+                      <div class="col-sm-4">
+                      </div>
+                      <div class="col-sm-4 ">
+                        <button type="submit" class="btn btn-outline-success m-2" (click)="modifier(id_contratClient)">Enregister</button>
+                        <button type="reset" class="btn btn-outline-danger m-2" >Annuler</button>
+                      </div>
+                    </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-sm-0 ">
+          </div>
+        </div>
+    </div>
+  </div>
